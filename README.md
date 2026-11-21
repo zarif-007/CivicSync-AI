@@ -65,3 +65,25 @@ A GitHub Actions workflow builds the production bundle on pushes to the improvem
 ## Suggested next steps
 
 For a later production iteration, add a secure API, authentication and role-based access, persistent storage, geocoding, validated public datasets, real multimodal AI with human review, audit logs, and accessibility testing.
+
+
+## DNCC backend foundation (in progress)
+
+The `feature/production-platform-integrations` branch adds a secure server-side integration foundation for a DNCC pilot:
+
+- `api/triage.js`: authenticated Gemini triage endpoint; validates input and marks every result for human review.
+- `api/reports.js`: authenticated report creation/listing API with citizen/staff visibility constraints.
+- `api/dncc.js`: transparent registry of verified official DNCC public reference sources. It explicitly reports that no live municipal API is connected.
+- `supabase/schema.sql`: initial PostgreSQL schema, profile roles, report status, indexes and row-level security policies.
+- `docs/DNCC-INTEGRATION.md`: public-source verification, integration prerequisites and privacy boundaries.
+- `.env.example`: required environment variable names (no secrets).
+
+### Required setup
+
+1. Create a Supabase project and apply `supabase/schema.sql`.
+2. Configure server-only `SUPABASE_URL`, `SUPABASE_SERVICE_ROLE_KEY`, and `GEMINI_API_KEY` in the deployment environment. Configure `SUPABASE_URL` and `SUPABASE_SERVICE_ROLE_KEY` only as server secrets.
+3. Configure browser `VITE_SUPABASE_URL` and `VITE_SUPABASE_ANON_KEY` when the authentication UI is wired.
+4. Set staff/admin roles only through a trusted administrative process.
+5. Obtain DNCC permission, API documentation and authoritative ward boundary data before enabling live municipal case exchange or claiming official integration.
+
+**Important:** These backend endpoints and schema are an integration foundation, not a completed production deployment. The existing demo UI has not yet been switched over to them. The AI endpoint requires a configured Gemini key. The DNCC registry is not a live government API.
