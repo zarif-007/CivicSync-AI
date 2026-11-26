@@ -66,6 +66,7 @@ export default function MapView({ zones = [], reports = [], selected, onSelect, 
           <option>Waterlogging</option>
           <option>Streetlight</option>
           <option>Waste accumulation</option>
+          <option>Other</option>
         </select>
         <select value={status} onChange={(event) => setStatus(event.target.value)} className="field min-w-0 w-full flex-1 py-2 text-xs sm:w-auto sm:min-w-[130px]" aria-label="Filter map by status">
           <option>All statuses</option>
