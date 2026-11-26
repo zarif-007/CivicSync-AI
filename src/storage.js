@@ -49,8 +49,8 @@ export function isValidStoredReport(report) {
     ['resolvedAt', 40], ['resolutionNote', 300],
   ]
   if (optionalStrings.some(([key, max]) => report[key] !== undefined && !boundedString(report[key], max))) return false
-  if (report.latitude !== undefined && !Number.isFinite(report.latitude)) return false
-  if (report.longitude !== undefined && !Number.isFinite(report.longitude)) return false
+  if (report.latitude !== undefined && (!Number.isFinite(report.latitude) || report.latitude < -90 || report.latitude > 90)) return false
+  if (report.longitude !== undefined && (!Number.isFinite(report.longitude) || report.longitude < -180 || report.longitude > 180)) return false
   if (report.confidence !== undefined && (!Number.isFinite(report.confidence) || report.confidence < 0 || report.confidence > 1)) return false
   if (report.safetyFlags !== undefined && (
     !Array.isArray(report.safetyFlags) ||
