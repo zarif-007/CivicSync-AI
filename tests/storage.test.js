@@ -20,6 +20,14 @@ test('stored report validation accepts valid demo reports and rejects malformed 
   assert.equal(isValidStoredReport({ ...initialReports[0], status: 'untrusted-status' }), false)
 })
 
+test('stored report validation rejects coordinates outside geographic bounds', () => {
+  assert.equal(isValidStoredReport({ ...initialReports[0], latitude: 91 }), false)
+  assert.equal(isValidStoredReport({ ...initialReports[0], latitude: -91 }), false)
+  assert.equal(isValidStoredReport({ ...initialReports[0], longitude: 181 }), false)
+  assert.equal(isValidStoredReport({ ...initialReports[0], longitude: -181 }), false)
+  assert.equal(isValidStoredReport({ ...initialReports[0], latitude: 90, longitude: 180 }), true)
+})
+
 test('stored report loader merges valid reports and ignores invalid records', () => {
   const extra = { ...initialReports[0], id: 'CS-9001', title: 'New local demo report' }
   const malformed = { id: 'broken', status: 'Pending', zoneId: 'commercial', severity: 30, cost: 10 }
