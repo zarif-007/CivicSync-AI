@@ -20,13 +20,17 @@ CivicSync AI demonstrates how a citizen report could be analyzed, mapped, routed
 - Browser-local persistence through localStorage and session-only demo sign-in.
 - Dark mode, mobile-responsive layout, keyboard focus indicators, reduced-motion support and graceful fallback states for map/chart failures.
 
-## Recent polish (design system)
+## Recent polish (design system + UI)
 
 - Refined panel system with subtle glass / backdrop-blur treatment and improved light/dark contrast.
 - Stronger focus rings, smoother micro-interactions and hover states on cards and buttons.
 - Enhanced Demo Login experience with mesh background, gradient brand mark and clearer visual hierarchy.
 - Expanded Tailwind tokens (richer shadows, scale-in animation, mesh backgrounds).
 - Better selection colors, scrollbar styling and forced-colors accessibility support.
+- MapView filter bar and legend polished for consistency with the design system.
+- ChartRenderer improved for dark-mode grids, ticks and tooltips.
+- WorkflowFeatures panels cleaned up for clearer hierarchy and readable spacing.
+- ReportTimeline and error-boundary panels aligned with the new visual language.
 
 ## Technology
 
