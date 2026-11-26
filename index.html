@@ -8,6 +8,23 @@
     <meta name="description" content="CivicSync AI — AI-assisted civic issue reporting and municipal workflow prototype for DNCC-inspired service flows." />
     <meta name="color-scheme" content="light dark" />
     <title>CivicSync AI · Urban Intelligence Prototype</title>
+    <style>
+      html, body { min-height: 100%; background: #f4f7f5; }
+      html.dark, html.dark body { background: #070d18; color-scheme: dark; }
+      html:not(.dark) { color-scheme: light; }
+    </style>
+    <script>
+      (() => {
+        let dark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        try {
+          const saved = window.localStorage.getItem('civicsync-theme');
+          if (saved === 'dark') dark = true;
+          else if (saved === 'light') dark = false;
+        } catch {}
+        document.documentElement.classList.toggle('dark', dark);
+        document.documentElement.style.backgroundColor = dark ? '#070d18' : '#f4f7f5';
+      })();
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   </head>
