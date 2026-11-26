@@ -31,6 +31,8 @@ CivicSync AI demonstrates how a citizen report could be analyzed, mapped, routed
 - ChartRenderer improved for dark-mode grids, ticks and tooltips.
 - WorkflowFeatures panels cleaned up for clearer hierarchy and readable spacing.
 - ReportTimeline and error-boundary panels aligned with the new visual language.
+- `index.html` improved with proper light/dark theme-color and color-scheme meta.
+- Recommended App.jsx visual upgrades (Brand gradient, MetricCard trend badges, ReportTable button polish) — see PR / commit notes.
 
 ## Technology
 
